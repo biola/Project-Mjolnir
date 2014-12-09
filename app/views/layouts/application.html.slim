@@ -1,0 +1,18 @@
+doctype html
+html lang="en-us"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    link rel="icon" type="image/png" href="https://media1.biola.edu/biola/img/biola-icon.png"
+    title = "Project Mjolnir"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", media: "all"
+  body class="#{controller_name} #{action_name}"
+
+    .siteTitle
+      h1 = link_to 'Project Mjolnir', root_path, class: "biolaNow"
+
+    = yield
+
+  = javascript_include_tag "application"

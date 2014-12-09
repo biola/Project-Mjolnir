@@ -1,0 +1,23 @@
+app:
+  name: Project Mjolnir
+
+# Overwrite this in production
+secret_token: '*******************************************'
+
+urn_namespaces:
+- "urn:biola:apps:mjolnir:"
+- "urn:biola:apps:all:"
+
+cas:
+  url: "https://login.biola.edu/cas"
+
+email:
+  enabled: true
+  from: no-reply@biola.edu
+  developer: appdev@biola.edu
+  smtp:
+    server: postfix.biola.edu
+
+exceptions:
+  mail_to:
+  - appdev@biola.edu
