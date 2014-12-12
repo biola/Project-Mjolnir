@@ -1,18 +1,27 @@
 doctype html
 html lang="en-us"
   head
-    meta charset="utf-8"
-    meta http-equiv="X-UA-Compatible" content="IE=edge"
-    meta name="viewport" content="width=device-width, initial-scale=1"
-    link rel="icon" type="image/png" href="https://media1.biola.edu/biola/img/biola-icon.png"
-    title = "Project Mjolnir"
-    = csrf_meta_tags
+    / handles default html head tags and csrf_meta_tags
+    = render 'frontend_toolkit/head', title: 'Project Mjolnir'
     = stylesheet_link_tag "application", media: "all"
-  body class="#{controller_name} #{action_name}"
 
-    .siteTitle
-      h1 = link_to 'Project Mjolnir', root_path, class: "biolaNow"
+    / Load Proxima Nova and Minion Pro
+    = javascript_include_tag '//use.typekit.net/zvt1wex.js'
+    javascript:
+      try{Typekit.load();}catch(e){}
 
-    = yield
 
-  = javascript_include_tag "application"
+  body class="#{controller_name} #{action_name} wrap"
+
+    / account_list must be before biola_header otherwise the list won't be defined in time.
+    = render 'layouts/account_list'
+    = render 'frontend_toolkit/biola_header', enable_auth: true
+
+    = render 'layouts/site_header'
+    #colorbar
+    #body
+      = yield
+
+    = render 'frontend_toolkit/global_marketing_footer'
+
+    = javascript_include_tag "application"

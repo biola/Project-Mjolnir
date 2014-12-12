@@ -1,3 +1,57 @@
 /*
+*= require biola-frontend-toolkit
+*= require_tree ./resources
 *= require_self
 */
+
+body { background-color: #eaeaea; }
+
+.body {-webkit-font-smoothing: antialiased;
+  font-family: 'Lato', sans-serif !important;}
+#top_image {
+  width: 100%;
+  height: 200px;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+  background-attachment: fixed;
+}
+
+#logo {
+  margin-top: -58px;
+  margin-left: 200px;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+  h1 {
+    display: inline;
+    margin-left: 10px;
+    transition: all .2s ease-in-out;
+  }
+  img {
+    transition: all .2s ease-in-out;
+  }
+}
+
+.fixed {
+  position: fixed !important;
+  left: 0;
+  top: 0px !important;
+  // Navbar style
+  position: relative;
+  width: 100%;
+  height: 42px;
+  background-color: black;
+  opacity: .9;
+}
+.logo-fixed {
+  img {
+    transform: scale(.3);
+    margin-top: -10px;
+  }
+  top: 0px !important;
+  position: fixed !important;
+  margin-top: -20px !important;
+  h1 { transform: scale(1); font-size: 25px !important; margin-left: -25px !important; }
+}
+#wrapperBiolaHeader {
+  position: absolute;
+}
