@@ -1,7 +1,13 @@
 #top_image style="background-image: url(#{asset_path "background/#{rand(6)}.png"});"
 #navbar
 #logo
-  = image_tag "biola-logo.png"
-  h1 class="title"
-    strong> PROJECT
-    i mjolnir
+  span.pull-left
+    = link_to root_path do
+      = image_tag "biola-logo.png"
+      h1 class="title"
+        strong> PROJECT
+        i mjolnir
+  span
+    ul class="nav nav-pills" id="nav-list"
+      = nav_link 'Events', :events_path
+      = nav_link 'News', :articles_path
