@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_filter :pundit_authorize
 
   def index
-    @events = policy_scope(Event)
+    @events = policy_scope(Event).published
     @events = @events.custom_search(params[:q]) if params[:q]
     # @events = @events.order('start_date DESC').page(params[:page]).per(25)
   end

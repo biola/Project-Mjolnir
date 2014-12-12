@@ -1,12 +1,15 @@
+/![if lte IE 8]><meta http-equiv="REFRESH" content="0;url=/upgrade"><![endif]
+
 doctype html
 html lang="en-us"
   head
+    / Android 5.0 theme color
+    meta name="theme-color" content="#B90A1D"
+
     / handles default html head tags and csrf_meta_tags
     = render 'frontend_toolkit/head', title: 'Project Mjolnir'
     = stylesheet_link_tag "application", media: "all"
 
-    / Load Proxima Nova and Minion Pro
-    = javascript_include_tag '//use.typekit.net/zvt1wex.js'
     javascript:
       try{Typekit.load();}catch(e){}
 
