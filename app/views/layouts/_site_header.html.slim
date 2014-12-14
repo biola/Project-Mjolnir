@@ -1,13 +1,14 @@
 #top_image style="background-image: url(#{asset_path "background/#{rand(6)}.png"});"
-#navbar
-#logo
-  span.pull-left
-    = link_to root_path do
-      = image_tag "biola-logo.png"
-      h1 class="title"
+.navbar.navbar-default#logo.not-scrolled
+  .container-fluid
+    /! Brand and toggle get grouped for better mobile display
+    .navbar-header
+      button.navbar-toggle.collapsed data-target="#nav-drop" data-toggle="collapse" type="button"
+        = fa_icon 'bars 2x'
+      = link_to root_path, class: "navbar-brand" do
         strong> PROJECT
         i mjolnir
-  span
-    ul class="nav nav-pills" id="nav-list"
-      = nav_link 'Events', :events_path
-      = nav_link 'News', :articles_path
+    .collapse.navbar-collapse#nav-drop
+      ul.nav.navbar-nav
+        = nav_link 'Events', :events_path
+        = nav_link 'News', :articles_path
