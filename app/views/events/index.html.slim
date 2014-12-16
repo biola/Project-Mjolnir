@@ -1,6 +1,6 @@
 .page
   .page-header
-    = render 'shared/carousel', objects: @events, features: @features
+    = render 'shared/carousel', objects: @events, features: @features unless @features.blank?
     .col-md-3.col-sm-12.col-xs-12.pull-right
       = form_tag events_path, method: :get do
         = text_field_tag 'q', params[:q], class: 'form-control', placeholder: "&#xF002; Search".html_safe, tabindex: '1', style: "font-family: FontAwesome"
