@@ -64,6 +64,7 @@ module Mjolnir
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.assets.precompile += %w( .js .css *.css.scss .svg .eot .woff .ttf)
 
     # Enable FactoryGirl for generators
     config.generators do |g|
