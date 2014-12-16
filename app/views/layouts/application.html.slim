@@ -23,7 +23,10 @@ html lang="en-us"
     = render 'layouts/site_header'
     #colorbar
     #body
-      = yield
+      .container
+        = yield
+    .social-media
+      = render 'layouts/social_media'
 
     = render 'frontend_toolkit/global_marketing_footer'
 

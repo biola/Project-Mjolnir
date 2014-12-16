@@ -1,69 +1,25 @@
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
+.page
+  .page-header
+    = render 'shared/carousel', objects: @articles
+    .col-md-3.col-sm-12.col-xs-12.pull-right
+      = form_tag articles_path, method: :get do
+        = text_field_tag 'q', params[:q], class: 'form-control', placeholder: "&#xF002; Search".html_safe, tabindex: '1', style: "font-family: FontAwesome"
+    ul.nav.nav-pills.pull-left
+      = nav_pill_header 'Options'
+      - ['All News', 'Academics', 'Alumni', 'Athletics', 'Releases', 'Student Life'].each do |filterable|
+        = nav_list_link filterable, :category, filterable
 
-
-/ | lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
+    .clearfix
+  ul class="list-unstyled main-list"
+    - @articles.each do |article|
+      li.list-entry.row
+        .col-md-2.col-sm-3.col-xs-3
+          .list-image
+            = link_to article_path(article) do
+              - if article.photos.first
+                  = image_tag article.photos.first.photo_url
+              - else
+                = fa_icon 'newspaper-o'
+        .col-md-10.col-sm-19.col-xs-7
+          .list-title = link_to article.title, article_path(article)
+          .list-text = article.teaser
