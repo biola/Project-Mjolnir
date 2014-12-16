@@ -1,28 +1,15 @@
 .col-md-12.col-carousel
   #carousel.carousel.slide data-ride="carousel"
     ol.carousel-indicators
-      li.active data-slide-to="0" data-target="#carousel"
-      li data-slide-to="1" data-target="#carousel"
-      li data-slide-to="2" data-target="#carousel"
+      - features.each_with_index do |feature, index|
+        li data-slide-to="#{index}" data-target="#carousel" class="#{'active' if index == 0}"
     .carousel-inner
-      .item.active
-        img alt=("First slide") src="http://placehold.it/1200x500/3498db/2980b9" /
-        .carousel-caption
-          h3 = link_to 'Object Title Link', '#'
-          p
-            | Object Teaser goes here.
-      .item
-        img alt=("Second slide") src="http://placehold.it/1200x500/9b59b6/8e44ad" /
-        .carousel-caption
-          h3 = link_to 'Object Title Link', '#'
-          p
-            | Object Teaser goes here.
-      .item
-        img alt=("Third slide") src="http://placehold.it/1200x500/34495e/2c3e50" /
-        .carousel-caption
-          h3 = link_to 'Object Title Link', '#'
-          p
-            | Object Teaser goes here.
+      - features.each_with_index do |feature, index|
+        .item class="#{'active' if index == 0}"
+          img src= feature.photo_url
+          .carousel-caption
+            h3 = link_to feature.title, feature.link
+            p = feature.body.html_safe
     a.left.carousel-control data-slide="prev" href="#carousel"
       span.fa.fa-chevron-left
     a.right.carousel-control data-slide="next" href="#carousel"

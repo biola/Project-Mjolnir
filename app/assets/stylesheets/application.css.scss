@@ -69,6 +69,7 @@ body { background-color: #e7e7e7; }
 .carousel { margin-bottom: 60px; }
 
 .carousel-caption {
+  background: rgba(0,0,0,0.4);
   a {
     color: white;
     &:hover {
