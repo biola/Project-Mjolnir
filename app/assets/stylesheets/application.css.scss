@@ -67,9 +67,13 @@ body { background-color: #e7e7e7; }
   @media (min-width: 320px) and (max-width: 525px){ padding: 0; margin: -15px; }
 }
 .carousel { margin-bottom: 60px; }
+.carousel-control { background-image: none; }
 
 .carousel-caption {
-  background: rgba(0,0,0,0.4);
+  background-color: #252525;
+  border-top: 5px solid white;
+  position: initial;
+  padding-bottom: 50px;
   a {
     color: white;
     &:hover {
