@@ -1,0 +1,11 @@
+var delimiter =
+$('<div class="page-delimiter" data-page="<%= params[:page] %>"></div>');
+$('#my-articles').append(delimiter);
+$('#my-articles').append('<%= j render @articles %>');
+$('.pagination').replaceWith('<%= j paginate @articles %>');
+preparePagination(delimiter);
+<% if @articles.next_page %>
+  $('#with-button .pagination').hide();
+<% else %>
+  $('#with-button .pagination, #load_more_posts').remove();
+<% end %>

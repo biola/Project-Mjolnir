@@ -13,19 +13,11 @@
         - ['Upcoming Events', 'This Week', 'This Month', 'This Year', 'Past Events'].each do |filterable|
           = nav_list_link filterable, :category, filterable
     .clearfix
-  ul class="list-unstyled main-list"
-    - @events.each do |event|
-      li.list-entry.row
-        .col-md-2.col-sm-3.col-xs-3
-          .list-image
-            = link_to event_path(event) do
-              - if event.image_url
-                = image_tag event.image_url(:thumb)
-              - else
-                = fa_icon 'calendar'
-        .col-md-7.col-sm-5.col-xs-7
-          .list-title = link_to event.title, event_path(event)
-          .list-text = event.teaser
-        .col-md-3.col-sm-4.col-xs-12.text-muted.lead
-          .pull-right
-            = "#{event.start_date.strftime('%B %e')} - #{event.end_date.strftime('%e')}"
+  #my-events
+    ul class="list-unstyled main-list"
+      = render @events
+
+  #with-button
+    = paginate @events
+  - if @paginate
+    #load_more_posts.btn.btn-default.btn-lg.btn-block Load More

@@ -1,0 +1,11 @@
+var delimiter =
+$('<div class="page-delimiter" data-page="<%= params[:page] %>"></div>');
+$('#my-events').append(delimiter);
+$('#my-events').append('<%= j render @events %>');
+$('.pagination').replaceWith('<%= j paginate @events %>');
+preparePagination(delimiter);
+<% if @events.next_page %>
+  $('#with-button .pagination').hide();
+<% else %>
+  $('#with-button .pagination, #load_more_posts').remove();
+<% end %>

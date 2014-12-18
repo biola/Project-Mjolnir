@@ -1,11 +1,8 @@
 // News & Events lists
-.main-list {
-  border-bottom: 1px solid white;
-}
-
 .list-entry {
-  border-top: 1px solid white;
+  border-bottom: 1px solid white;
   padding: 10px;
+  list-style-type: none;
 }
 
 .list-image {

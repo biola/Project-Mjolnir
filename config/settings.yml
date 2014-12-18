@@ -21,3 +21,6 @@ email:
 exceptions:
   mail_to:
   - appdev@biola.edu
+
+per:
+  page: 5
